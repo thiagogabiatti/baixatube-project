@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baixa Tube</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <form method="POST" action="/">
+            <label for="links" class="title">Digite os links dos vídeos:</label><br>
+            <textarea class="textarea" name="links" cols="50" placeholder="Cole os links aqui..." oninput="adjustTextArea(this)" required></textarea>
+
+            <button type="submit" name="format" value="mp4">Download MP4</button>
+            <button type="submit" name="format" value="mp3">Download MP3</button>
+        </form>
+    </div>
+
+    <script>
+        function adjustTextArea(textarea) {
+            textarea.style.height = 'auto' // reset height
+            textarea.style.height = (textarea.scrollHeight) + 'px' //adjust for the new scrollHeight
+        }
+    </script>
+
+
+</body>
+</html>
