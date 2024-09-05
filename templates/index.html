@@ -3,18 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{{ url_for('static', filename='tsgicon.png') }}" type="image/png">
     <title>Baixa Tube</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <div class="container">
+        <h2>Download Youtube Videos</h2>
         <form method="POST" action="/">
-            <label for="links" class="title">Digite os links dos vídeos:</label><br>
-            <textarea class="textarea" name="links" cols="50" placeholder="Cole os links aqui..." oninput="adjustTextArea(this)" required></textarea>
+            <textarea id="links" class="textarea" name="links" cols="60" rows="3" placeholder="Cole os links aqui..." oninput="adjustTextArea(this)" required></textarea>
 
-            <button type="submit" name="format" value="mp4">Download MP4</button>
-            <button type="submit" name="format" value="mp3">Download MP3</button>
+            <button type="submit" name="format" value="mp4" class="glow-on-hover">Download MP4</button>
+            <button type="submit" name="format" value="mp3" class="glow-on-hover">Download MP3</button>
         </form>
+
+        <h1 class="title">made by <a href="https://github.com/thiagogabiatti/" target="_blank">Gabiatti</a></h1>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="alert alert-danger">
+                    <ul>
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+        {% endwith %}
+
     </div>
 
     <script>
