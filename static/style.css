@@ -60,7 +60,7 @@ form {
 
 
 .glow-on-hover {
-    width: 200px;
+    width: 170px;
     height: 50px;
     border: none;
     outline: none;
@@ -117,4 +117,25 @@ form {
     0% { background-position: 0 0; }
     50% { background-position: 400% 0; }
     100% { background-position: 0 0; }
+}
+
+@media (max-width: 768px) {
+    .container {
+        height: auto;
+        padding: 20px;
+    }
+
+    form {
+        flex-direction: column;  /* Coloca os campos e botões em uma coluna */
+        width: 80%;
+    }
+
+    .textarea [type="text"] {
+        width: 50% !important;  /* A largura do campo de texto ocupa 100% da tela */
+        margin-right: 0; /* Remove a margem direita */
+    }
+
+    .glow-on-hover {
+        width: 50%;  /* Botões ocupam 100% da largura em telas menores */
+    }
 }
